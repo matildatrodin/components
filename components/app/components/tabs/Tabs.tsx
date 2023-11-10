@@ -21,7 +21,7 @@ export const Tabs: FC<TabsProps> = ({ activeTab, tabs }) => {
       default:
       case Libraries.default:
         return (
-          <div className="flex flex-row">
+          <div className="flex flex-row justify-center">
             {tabs.map((tab) => (
               <button
                 onClick={tab.onClick}
@@ -39,7 +39,7 @@ export const Tabs: FC<TabsProps> = ({ activeTab, tabs }) => {
         );
       case Libraries.mui:
         return (
-          <TabsMui value={activeTab}>
+          <TabsMui value={activeTab} centered>
             {tabs.map((tab) => (
               <TabMui
                 value={tab.label}
@@ -51,7 +51,7 @@ export const Tabs: FC<TabsProps> = ({ activeTab, tabs }) => {
         );
       case Libraries.radix:
         return (
-          <TabsRadix.Root value={activeTab}>
+          <TabsRadix.Root value={activeTab} className="flex justify-center">
             <TabsRadix.List>
               {tabs.map((tab) => (
                 <TabsRadix.Trigger value={tab.label} onClick={tab.onClick}>

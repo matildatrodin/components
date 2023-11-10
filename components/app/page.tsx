@@ -10,51 +10,42 @@ import SurfacesPage from "./pageContent/SurfacesPage";
 import HeadingsPage from "./pageContent/HeadingsPage";
 
 export default function Home() {
-  const [tabContent, setTabContent] = useState<
-    "Buttons" | "Menus" | "Headings" | "Surfaces"
-  >("Surfaces");
+  const [tabContent, setTabContent] = useState<"Profile" | "Experiences">(
+    "Profile"
+  );
 
   const PageContent = () => {
     switch (tabContent) {
-      case "Surfaces":
+      case "Profile":
         return <SurfacesPage />;
-      case "Buttons":
+      case "Experiences":
         return <ButtonsPage />;
-      case "Headings":
-        return <HeadingsPage />;
     }
   };
 
   return (
     <main className="flex min-h-screen flex-col p-24">
-      <div className="mb-2 h-6">
-        <Text>switch theme here</Text>
-      </div>
       <LibraryButtons />
-      <div className="mb-4">
-        <Heading>components frenzy</Heading>
+      <div className="flex flex-col items-center">
+        <div className="w-1/2">
+          <div className="mb-4">
+            <Heading tag="h2">matilda trodin</Heading>
+          </div>
+          <Tabs
+            activeTab={tabContent}
+            tabs={[
+              {
+                label: "Profile",
+                onClick: () => setTabContent("Profile"),
+              },
+              {
+                label: "Experiences",
+                onClick: () => setTabContent("Experiences"),
+              },
+            ]}
+          />
+        </div>
       </div>
-      <Tabs
-        activeTab={tabContent}
-        tabs={[
-          {
-            label: "Surfaces",
-            onClick: () => setTabContent("Surfaces"),
-          },
-          {
-            label: "Buttons",
-            onClick: () => setTabContent("Buttons"),
-          },
-          {
-            label: "Menus",
-            onClick: () => setTabContent("Menus"),
-          },
-          {
-            label: "Headings",
-            onClick: () => setTabContent("Headings"),
-          },
-        ]}
-      />
       <div className="mt-4">{PageContent()}</div>
     </main>
   );

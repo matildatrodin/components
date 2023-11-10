@@ -1,0 +1,23 @@
+{
+  "convey": {
+    "title": "Tech Lead at Hilma",
+    "summary": "Hilma is developed by the tech startup, Convey Group. Its goal is to create great presenters by providing users with tools for excellent presentations. I led the development team, taking charge of requirements gathering, project planning, and structuring. My extensive experience in React and Typescript, along with my problem-solving abilities, made me an essential part of the development process. As a tech lead, I naturally displayed leadership qualities, and my management skills allowed me to maintain a great balance between fast delivery, product quality, and team well-being.",
+    "stack": "React, Typescript, GraphQL, Apollo, Contentful, styled-components, Stripe, Playwright"
+  },
+  "klarna": {
+    "title": "Frontend engineer at Klarna",
+    "summary": "I was a part of Klarna, one of Europe's largest banks, which offered direct payments, pay later options, and installment plans. I worked in a cross-functional team that was responsible for enhancing the pay later purchase experience. I also contributed to a project aimed at unifying the various Klarna clients into a single frontend client for all markets. During this project, I worked on integrating the pay later product into the new client. The main challenge I faced was adapting the product to a new code architecture and implementing the new design.",
+    "stack": "React, Javascript, Typescript, Bitbucket, Storybook, Material UI, Splunk, Jest, Docker, TestCafe"
+  },
+  "sj": {
+    "title": "Frontend engineer & UX Designer at SJ",
+    "summary": "To streamline the tasks related to managing traffic disturbances, I joined SJ's project as a UX designer and frontend developer. The goal was to unify and modernize various systems for ordering transport replacements and providing compensations to travelers. I collaborated closely with the user group to deliver the best possible design. During my time at SJ, I demonstrated strong technical skills and put in significant effort to enhance the efficiency of the frontend development process. I also took on the primary leadership role in the overall frontend development effort.",
+    "stack": "React, TypeScript, Figma, Material Ui, Microsoft Azure"
+  },
+  "wish2go": {
+    "title": "",
+    "summary": "",
+    "full": "",
+    "stack": ""
+  }
+}

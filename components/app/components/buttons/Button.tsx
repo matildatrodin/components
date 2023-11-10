@@ -5,11 +5,24 @@ import { Libraries, LibraryContext } from "@/app/context/LibraryProvider";
 
 interface ButtonProps {
   children: ReactNode;
+  size?: "small" | "medium" | "large";
   onClick?: () => void;
 }
 
-const Button: FC<ButtonProps> = ({ children, onClick }) => {
+const Button: FC<ButtonProps> = ({ children, size = "medium", onClick }) => {
   const { library } = useContext(LibraryContext);
+
+  const getRadixSize = () => {
+    switch (size) {
+      case "small":
+        return "1";
+      default:
+      case "medium":
+        return "2";
+      case "large":
+        return "3";
+    }
+  };
 
   const Switch = () => {
     switch (library) {
@@ -17,9 +30,22 @@ const Button: FC<ButtonProps> = ({ children, onClick }) => {
       case Libraries.default:
         return <button onClick={onClick}>{children}</button>;
       case Libraries.mui:
-        return <ButtonMui onClick={onClick}>{children}</ButtonMui>;
+        return (
+          <ButtonMui
+            variant="contained"
+            disableElevation
+            onClick={onClick}
+            size={size}
+          >
+            {children}
+          </ButtonMui>
+        );
       case Libraries.radix:
-        return <ButtonRadix onClick={onClick}>{children}</ButtonRadix>;
+        return (
+          <ButtonRadix onClick={onClick} size={getRadixSize()}>
+            {children}
+          </ButtonRadix>
+        );
     }
   };
 

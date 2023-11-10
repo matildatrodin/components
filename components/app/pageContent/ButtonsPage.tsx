@@ -6,6 +6,7 @@ import Heading from "../components/heading/Heading";
 const ButtonsPage: FC = () => {
   return (
     <div>
+      <Heading tag="h4">Highlights</Heading>
       <Card>
         <div className="mb-2">
           <Heading tag="h6">Radio</Heading>

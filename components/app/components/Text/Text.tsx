@@ -5,20 +5,53 @@ import { Libraries, LibraryContext } from "@/app/context/LibraryProvider";
 
 interface TextProps {
   children: ReactNode;
+  color?: "black" | "white";
+  size?: "small" | "medium" | "large";
 }
 
-const Text: FC<TextProps> = ({ children }) => {
+const Text: FC<TextProps> = ({
+  children,
+  color = "black",
+  size = "medium",
+}) => {
   const { library } = useContext(LibraryContext);
 
   const Switch = () => {
     switch (library) {
       default:
       case Libraries.default:
-        return <p className="m-0">{children}</p>;
+        return (
+          <p className={"m-0 " + `text-[color:${color}]`} color={color}>
+            {children}
+          </p>
+        );
       case Libraries.mui:
-        return <TextMui variant="body1">{children}</TextMui>;
+        return (
+          <TextMui variant="body1" color={color}>
+            {children}
+          </TextMui>
+        );
       case Libraries.radix:
-        return <TextRadix as="p">{children}</TextRadix>;
+        switch (size) {
+          case "small":
+            return (
+              <TextRadix as="p" size="1" className={`text-[color:${color}]`}>
+                {children}
+              </TextRadix>
+            );
+          case "medium":
+            return (
+              <TextRadix as="p" size="3" className={`text-[color:${color}]`}>
+                {children}
+              </TextRadix>
+            );
+          case "large":
+            return (
+              <TextRadix as="p" size="5" className={`text-[color:${color}]`}>
+                {children}
+              </TextRadix>
+            );
+        }
     }
   };
 
